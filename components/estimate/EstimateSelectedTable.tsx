@@ -56,6 +56,10 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
                             <p className='text-xs'>{row.quantity} {row.unity}</p>
                         </div>
                         <div className='grid grid-cols-2 p-2'>
+                            <p className='text-sm'>Preço Total (R$):</p>
+                            <p className='text-xs'>R$ {row.quantity*row.price}</p>
+                        </div>
+                        <div className='grid grid-cols-2 p-2'>
                             <button className='w-24 text-sm bg-red-500 text-white p-1 rounded-lg font-semibold' type="button" onClick={e => handleRemoveProduct(index, row)}>Excluir</button>
                         </div>
                     </div>

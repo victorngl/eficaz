@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import { useRouter } from 'next/router'
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import ConfirmModal from '../utils/ConfirmModal';
 import Pagination from '../utils/Paginations';
 import { paginate } from '../../helpers/paginate';
 
 
-export default function ProductsShowTable({ data, setData, dataRaw }) {
+function ProductsShowTable({ data, setData, dataRaw }) {
 
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 70;
@@ -113,3 +113,5 @@ export default function ProductsShowTable({ data, setData, dataRaw }) {
     </>
   );
 }
+
+export default ProductsShowTable;
