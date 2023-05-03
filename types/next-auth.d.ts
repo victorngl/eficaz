@@ -1,11 +1,11 @@
 import NextAuth from "next-auth"
 
 interface IUser extends DefaultUser {
-  id:number,
-  name:string,
-  email:string,
-  image?:string,
-  role?: string;
+  id        :number,
+  name      :string,
+  email     :string,
+  image?    :string,
+  role?     :string;
 }
 
 declare module "next-auth" {

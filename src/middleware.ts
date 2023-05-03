@@ -6,7 +6,6 @@ export default withAuth(
 
 
         if (req.nextUrl.pathname.startsWith("/admin") && req.nextauth.token?.role !== "ADMIN") {
-            console.log('ENTROU AQUI');
 
             return NextResponse.rewrite(
                 new URL("/login?message=Área restrita", req.url)
