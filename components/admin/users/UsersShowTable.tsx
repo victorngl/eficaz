@@ -17,9 +17,9 @@ export default function UsersShowTable({ dataRaw, data, setData }) {
     };
 
     const [deleteModalOpen, setDeleteModalOpen] = useState(false)
-    const [estimateToDelete, setEstimateToDelete] = useState(null);
+    const [userToDelete, setUserToDelete] = useState(null);
 
-    const deleteEstimate = (id) => {
+    const deleteUser = (id) => {
         if (id != undefined) {
             fetch(`/api/user/delete/${id}`)
                 .then((response) => {
@@ -33,7 +33,7 @@ export default function UsersShowTable({ dataRaw, data, setData }) {
     }
     return (
         <>
-            <ConfirmModal open={deleteModalOpen} setOpen={setDeleteModalOpen} performerDelete={deleteEstimate} idToDelete={estimateToDelete}><p>Você tem certeza que deseja excluir esse usuário ?</p></ConfirmModal>
+            <ConfirmModal open={deleteModalOpen} setOpen={setDeleteModalOpen} performerDelete={deleteUser} idToDelete={userToDelete}><p>Você tem certeza que deseja excluir esse usuário ?</p></ConfirmModal>
 
             <div className='hidden md:block'>
                 <table className="w-fit md:w-full text-sm text-gray-500 dark:text-gray-400">
@@ -67,10 +67,10 @@ export default function UsersShowTable({ dataRaw, data, setData }) {
                                     {user.role}</td>
                                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white">
                                     <div className='flex gap-2 justify-center'>
-                                        <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setEstimateToDelete(estimate.id); setModalOpen(true) }}>
+                                        <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setUserToDelete(user.id); setDeleteModalOpen(true) }}>
                                             Excluir
                                         </button>
-                                        <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`/orcamento/edit/${estimate.id}`)}>
+                                        <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`/users/edit/${user.id}`)}>
                                             Editar
                                         </button>
                                     </div>
@@ -96,10 +96,10 @@ export default function UsersShowTable({ dataRaw, data, setData }) {
                             </div>
                             <div>
                                 <div className='flex gap-2 justify-center'>
-                                    <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setEstimateToDelete(estimate.id); setModalOpen(true) }}>
+                                    <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setUserToDelete(user.id); setDeleteModalOpen(true) }}>
                                         Excluir
                                     </button>
-                                    <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`/orcamento/edit/${estimate.id}`)}>
+                                    <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`/users/edit/${user.id}`)}>
                                         Editar
                                     </button>
                                 </div>
