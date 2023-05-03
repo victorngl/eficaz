@@ -3,18 +3,17 @@ import { NextRequest, NextResponse } from "next/server";
 
 export default withAuth(
     function middleware(req) {
-        
-       
 
-        if (req.nextUrl.pathname.startsWith("/admin") && req.nextauth.token?.role !== "ADMIN")
+
+        if (req.nextUrl.pathname.startsWith("/admin") && req.nextauth.token?.role !== "ADMIN") {
             console.log('ENTROU AQUI');
 
             return NextResponse.rewrite(
-                new URL("/aaaaaa?message=Área restrita", req.url)
+                new URL("/login?message=Área restrita", req.url)
             );
+        }
 
-        
-        
+
     },
     {
         //callbacks: {
