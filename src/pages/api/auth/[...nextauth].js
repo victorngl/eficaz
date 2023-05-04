@@ -18,20 +18,15 @@ export const authOptions = {
             },
             async authorize(credentials, req) {
                 // Add logic here to look up the user from the credentials supplied
-
                 const getUser = await prisma.user.findUnique({
                     where: {
                         email: credentials.email,
                     }
                 })
-
+                
                 if (getUser) {
 
-                    var md5 = require('md5');
-                    
-                    console.log(md5(credentials.password));
-                    
-                    if (getUser.password === md5(credentials.password)) {
+                    if (getUser.password === credentials.password) {
 
                         const userReturned = {
                             id: getUser.id,

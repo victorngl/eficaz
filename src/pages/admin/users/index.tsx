@@ -9,7 +9,7 @@ import UsersShowTable from '../../../../components/admin/users/UsersShowTable';
 import SearchField from '../../../../components/utils/SearchField';
 
 
-export default function AdminDashboard() {
+export default function Users() {
     const [users, setUsers] = useState([]);
     const [busca, setBusca] = useState('');
 
@@ -48,7 +48,7 @@ export default function AdminDashboard() {
                     <p>Buscar</p>
                     <div className='flex justify-between'>
                         <SearchField onChange={(e) => setBusca(e.target.value)}></SearchField>
-                        <button type='button' className='text-sm p-2 font-semibold rounded-lg bg-green-500 text-white' onClick={() => router.push(`/orcamento/create`)}>Criar usuário</button>
+                        <button type='button' className='text-sm p-2 font-semibold rounded-lg bg-green-500 text-white' onClick={() => router.push(`/admin/users/create`)}>Criar usuário</button>
                     </div>
                 </div>
 
