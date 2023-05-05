@@ -5,9 +5,7 @@ import { prisma } from "../../../db/prisma"
 
 export default async function handler(req, res) {
   const { body } = req;
-
-  var md5 = require('md5');
-
+  
   const user = await prisma.user.create({
     data: {
       name: body.name,
