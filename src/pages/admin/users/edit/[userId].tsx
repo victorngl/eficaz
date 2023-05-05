@@ -1,19 +1,12 @@
 import React, { useEffect, useState, useMemo, useRef } from 'react';
 
-import Divider from '../../../../../components/utils/Divider';
 import Navbar from '../../../../../components/navbar/Navbar';
 import Container from '../../../../../components/utils/Container';
-import SearchField from '../../../../../components/utils/SearchField';
-import EstimateSelectedTable from '../../../../../components/estimate/EstimateSelectedTable';
-import EditSelectedProduct from '../../../../../components/estimate/EditSelectedProduct';
-import FilteredListProducts from '../../../../../components/estimate/FilteredListProducts';
-import CompanyInfo from '../../../../../components/estimate/CompanyInfo';
 import Footer from '../../../../../components/footer/Footer';
 
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/router';
 import { User } from '../../../../../types/types';
-import ExportEstimateExcel from '../../../../../components/estimate/ExportEstimateExcel';
 import Head from 'next/head';
 import Header from '../../../../../components/header/Header';
 import UserForm from '../../../../../components/admin/users/UserForm';
@@ -35,13 +28,13 @@ function UserEditPage() {
         role: 0,
     });
 
+
     useEffect(() => {
         if (userId != undefined) {
             fetch(`/api/user/${userId}`)
                 .then((response) => { return response.json(); })
                 .then(data => {
                     setUser(data);
-                    console.log(data);
                 })
         }
 
