@@ -28,29 +28,30 @@ export default function UserCreate() {
 
     const handleUserCreate = async (e: any) => {
         e.preventDefault();
-        
-        if(user.password === '') {
+
+        if (user.password === '') {
             notifyPasswordRequired();
             return;
         }
 
-
         fetch("/api/user/create", {
-          method: "POST",
-          body: JSON.stringify(user),
-          headers: {
-            "Content-Type": "application/json",
-          },
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json",
+            },
         })
-          .then((response) => {
-            if (response.ok) {
-              notifyCreateSuccefull()
-              router.push('/admin/users')
-            }
-            return response.json();
-          })
-      };
+            .then((response) => {
+                if (response.ok) {
+                    notifyCreateSuccefull()
+                    router.push('/admin/users')
+                }
+                return response.json();
+            })
+    };
+
     
+
     return (
         <>
             <Header />
@@ -66,10 +67,10 @@ export default function UserCreate() {
 
                 <UserForm user={user} setUser={setUser} />
 
-                
+
                 <div className='flex mt-4'>
                     <div className='w-6/12 text-left flex gap-8'>
-                        <button onClick={ e => handleUserCreate(e) } type='button' className='p-4 rounded text-sm bg-green-500 hover:bg-green-800 text-white'>Salvar</button>
+                        <button onClick={e => handleUserCreate(e)} type='button' className='p-4 rounded text-sm bg-green-500 hover:bg-green-800 text-white'>Salvar</button>
                     </div>
                 </div>
 

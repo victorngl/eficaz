@@ -70,7 +70,7 @@ export default function UsersShowTable({ dataRaw, data, setData }) {
                                         <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setUserToDelete(user.id); setDeleteModalOpen(true) }}>
                                             Excluir
                                         </button>
-                                        <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`/users/edit/${user.id}`)}>
+                                        <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`/admin/users/edit/${user.id}`)}>
                                             Editar
                                         </button>
                                     </div>
@@ -99,7 +99,7 @@ export default function UsersShowTable({ dataRaw, data, setData }) {
                                     <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setUserToDelete(user.id); setDeleteModalOpen(true) }}>
                                         Excluir
                                     </button>
-                                    <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`/users/edit/${user.id}`)}>
+                                    <button className='p-2 rounded bg-yellow-400 text-white hover:bg-yellow-200' onClick={(e) => router.push(`admin/users/edit/${user.id}`)}>
                                         Editar
                                     </button>
                                 </div>

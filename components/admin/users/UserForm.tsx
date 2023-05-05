@@ -8,13 +8,16 @@ function CompanyInfo({ user, setUser }) {
 
     function handleFormChange(e) {
         const { name, value } = e.target;
-        setUser({ ...user, [name]: value });
+
+        if (name === 'password') {
+            var md5 = require('md5');
+            setUser({ ...user, [name]: md5(value)});
+        }
+
+        else {
+            setUser({ ...user, [name]: value });
+        }
     }
-
-    useEffect( () => {
-        console.log('ROLE: ' + user.role)
-    }, [user])
-
     return (
         <>
             <div className="justify-center items-center">
@@ -33,7 +36,7 @@ function CompanyInfo({ user, setUser }) {
 
                     <div className="mb-3">
                         <label htmlFor="cpf" className="text-sm text-navy-700 dark:text-white font-bold">CPF:</label>
-                        <InputMask required value={user.cpf} onChange={(e) => handleFormChange(e)} mask="999.999.99-99" name="cpf" type="text" placeholder="" className="mt-2 flex h-12 w-full items-center justify-center rounded-lg border bg-white/0 p-3 text-sm outline-none focus:border-gray-500 bg-gray-100"></InputMask>
+                        <InputMask required value={user.cpf} onChange={(e) => handleFormChange(e)} mask="999.999.999-99" name="cpf" type="text" placeholder="" className="mt-2 flex h-12 w-full items-center justify-center rounded-lg border bg-white/0 p-3 text-sm outline-none focus:border-gray-500 bg-gray-100"></InputMask>
                     </div>
 
                     <div className="mb-3">
@@ -52,20 +55,20 @@ function CompanyInfo({ user, setUser }) {
                     </div>
 
                     {session.user.role === 'ADMIN' &&
-                        <div className="mb-3" onChange={ e => handleFormChange(e) }>
+                        <div className="mb-3" onChange={e => handleFormChange(e)}>
                             <label htmlFor="password" className="text-sm text-navy-700 dark:text-white font-bold">Role:</label>
                             <div className="flex items-center mb-4 mt-4">
-                                <input type="radio" value="USER" name="role" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                <input checked={(user.role === 'USER')} type="radio" value="USER" name="role" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                 <label htmlFor="default-radio-1" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Usuário</label>
                             </div>
                             <div className="flex items-center">
-                                <input type="radio" value="ADMIN" name="role" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                                <input checked={(user.role === 'ADMIN')} type="radio" value="ADMIN" name="role" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                                 <label htmlFor="default-radio-2" className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Administrador</label>
                             </div>
                         </div>
                     }
 
-                    
+
 
 
 
