@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import Container from '../../../components/utils/Container';
 import Footer from '../../../components/footer/Footer';
 import Navbar from '../../../components/navbar/Navbar';
+import FunctionCard from '../../../components/admin/users/FunctionCards';
 
 export default function AdminDashboard() {
     const router = useRouter();
@@ -23,6 +24,7 @@ export default function AdminDashboard() {
                     <h4 className="text-2xl font-bold dark:text-white">Administrador</h4>
                 </div>
 
+            <FunctionCard link="/admin/users/" image='https://static.vecteezy.com/system/resources/previews/009/636/683/original/admin-3d-illustration-icon-png.png' />   
                 
             </Container>
             <Footer />

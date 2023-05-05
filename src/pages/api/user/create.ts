@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       email: body.email,
       phone: body.phone,
       cpf: body.cpf,
-      password: md5(body.password),
+      password: body.password,
       role: body.role,
     }});
 
