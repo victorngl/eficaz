@@ -13,6 +13,7 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
                     <thead className="text-xs text-gray-700 bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
                         <tr className='items-center'>
                             <th scope="col" className="text-center py-3">Nome</th>
+                            <th scope="col" className="text-center py-3">Unidade de Medida</th>
                             <th scope="col" className="text-center py-3">Preço Unitário (R$)</th>
                             <th scope="col" className="text-center py-3">Quantidade</th>
                             <th scope="col" className="text-center py-3">Valor Total (R$)</th>
@@ -25,6 +26,8 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
                                 <td scope="row" className="text-left px-6 py-2 font-medium text-gray-900 dark:text-white">
                                     {row.name}
                                 </td>
+                                <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
+                                    {row.unity}</td>
                                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     R$ {row.price}</td>
                                 <td scope="row" className="w-32 text-center px-6 py-2 font-medium text-gray-900 dark:text-white">
@@ -46,6 +49,10 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
                         <div className='grid grid-cols-2 p-2'>
                             <p className='text-sm'>Nome:</p>
                             <p className='text-xs white'>{row.name}</p>
+                        </div>
+                        <div className='grid grid-cols-2 p-2'>
+                            <p className='text-sm'>Unidade de Medida:</p>
+                            <p className='text-xs white'>{row.unity}</p>
                         </div>
                         <div className='grid grid-cols-2 p-2'>
                             <p className='text-sm'>Preço Unitário (R$):</p>
