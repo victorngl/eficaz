@@ -8,6 +8,15 @@ function EditSelectedProduct({ selectedProduct, setSelectedProduct, handleAddPro
         setSelectedProduct(undefined);
     }
 
+    const handleQuantityChange = (e) => {
+        var number = e.target.value;
+
+        if(!isNaN(number)) {
+            setSelectedQuantity(Number(number));
+            setSelectedProduct({...selectedProduct, quantity: Number(number)})
+        }
+    }
+
     const addQuantity = () => {
         let totalQuantity = selectedQuantity + 1
         setSelectedQuantity(totalQuantity)
@@ -49,7 +58,8 @@ function EditSelectedProduct({ selectedProduct, setSelectedProduct, handleAddPro
 
                             <div className="my-5">
                                 <button type='button' className='px-5 py-2 rounded bg-red-400 text-white mr-5' onClick={removeQuantity}>-</button>
-                                {selectedQuantity}
+                                
+                                <input onChange={ e => handleQuantityChange(e) } className="text-center w-12" type="" value={selectedQuantity}/>
                                 <button type='button' className='px-5 py-2 rounded bg-blue-400 text-white ml-5' onClick={addQuantity}>+</button>
                             </div>
 
