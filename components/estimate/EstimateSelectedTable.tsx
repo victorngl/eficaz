@@ -5,7 +5,7 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
         <>
             <div className="flex items-center justify-between font-bold w-full mb-5">
                 <p className='text-left'>Produtos Selecionados</p>
-                <p className='text-right'>Valor Total: R$ {estimate.totalprice}</p>
+                <p className='text-right'>Valor Total: R$ {Number(estimate.totalprice).toFixed(2)}</p>
             </div>
 
             <div className='hidden md:block'>

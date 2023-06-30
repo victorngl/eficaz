@@ -27,6 +27,12 @@ function EditSelectedProduct({ selectedProduct, setSelectedProduct, handleAddPro
         setSelectedQuantity(1);
         setSelectedProduct(undefined)
     }
+    
+    var formatter = new Intl.DateTimeFormat("pt-BR", {
+        year: "numeric",
+        month: "long",
+        day: "2-digit"
+      });
 
     return (
         <>
@@ -37,6 +43,8 @@ function EditSelectedProduct({ selectedProduct, setSelectedProduct, handleAddPro
                             <div className="space-y-4">
                                 <p className="text-base">{selectedProduct.name}</p>
                                 <p>Preço: R$ {selectedProduct.price}</p>
+                                <p>Data do preço: {formatter.format(Date.parse(selectedProduct.updatedAt))}</p>
+                                
                             </div>
 
                             <div className="my-5">

@@ -13,7 +13,7 @@ function CompanyInfo({estimate, setEstimate}) {
                 <div className="rounded-lg bg-white bg-clip-border shadow-3xl shadow-shadow-500 flex flex-col w-full bg-white">
                     <div className="relative flex flex-row justify-between">
                         <h2 className="text-xl font-semibold text-navy-700 dark:text-white mb-3">
-                           Dados da Empresa
+                           Dados do Projeto
                         </h2>
                     </div>
                     <div className="mb-3">
