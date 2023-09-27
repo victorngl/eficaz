@@ -36,7 +36,7 @@ model User {
 
 model Product {
   id              Int     @id @default(autoincrement())
-  name            String  
+  name            String  @db.VarChar(255)
   unity           String?
   price           Float
   supplier        String?
