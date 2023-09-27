@@ -22,6 +22,7 @@ export default function EditPage() {
     id: 0,
     name: '',
     price: 0,
+    supplier: '',
   });
 
   useEffect(() => {

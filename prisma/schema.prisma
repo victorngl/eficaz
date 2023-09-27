@@ -39,6 +39,7 @@ model Product {
   name            String  
   unity           String?
   price           Float
+  supplier        String?
   quantity        Int?  @default(1)
   price_amount    Float?
   createdAt       DateTime   @default(now())

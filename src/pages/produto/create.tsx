@@ -21,6 +21,7 @@ export default function EditPage() {
     name: '',
     price: 0,
     unity: '',
+    supplier: '',
   });
 
   const saveProduct = async (e) => {

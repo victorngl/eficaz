@@ -29,6 +29,11 @@ function ProductInfo({product, setProduct}) {
                         <input type='number' required value={product.price} onChange={(e) => handleFormChange(e)} name="price" id="price" placeholder="" className="mt-2 flex h-12 w-full items-center justify-center rounded-lg border bg-white/0 p-3 text-sm outline-none focus:border-gray-500 bg-gray-100"></input>
                     </div>
 
+                    <div className="mb-3">
+                        <label htmlFor="supplier" className="text-sm text-navy-700 dark:text-white font-bold">Fornecedor</label>
+                        <input type='text' required value={product.supplier} onChange={(e) => handleFormChange(e)} name="supplier" id="supplier" placeholder="" className="mt-2 flex h-12 w-full items-center justify-center rounded-lg border bg-white/0 p-3 text-sm outline-none focus:border-gray-500 bg-gray-100"></input>
+                    </div>
+
                     
 
                     {/*

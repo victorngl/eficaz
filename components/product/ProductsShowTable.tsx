@@ -48,6 +48,7 @@ function ProductsShowTable({ data, setData, dataRaw }) {
               <th scope="col" className="text-center py-3">Nome</th>
               <th scope="col" className="text-center py-3">Unidade</th>
               <th scope="col" className="text-center py-3">Valor (R$)</th>
+              <th scope="col" className="text-center py-3">Fornecedor</th>
               <th scope="col" className="text-center py-3">Ações</th>
             </tr>
           </thead>
@@ -64,6 +65,8 @@ function ProductsShowTable({ data, setData, dataRaw }) {
                   {product.unity}</td>
                 <td scope="row" className="w-32 text-center px-6 py-2 font-bold text-gray-900 dark:text-white">
                   R$ {product.price}</td>
+                <td scope="row" className="w-32 text-center px-6 py-2 font-bold text-gray-900 dark:text-white">
+                  {product.supplier}</td>
                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white">
                   <div className='flex gap-2 justify-center'>
                     <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setProductToDelete(product.id); SetDeleteModalOpen(true) }}>
@@ -88,6 +91,7 @@ function ProductsShowTable({ data, setData, dataRaw }) {
                 <div className='text-sm'><label className='font-bold'>Nome: </label>{product.name}</div>
                 <div className='text-sm'><label className='font-bold'>Unidade: </label>{product.unity}</div>
                 <div className='text-sm'><label className='font-bold'>Preço: </label>R$ {product.price}</div>
+                <div className='text-sm'><label className='font-bold'>Fornecedor: </label>{product.supplier}</div>
               </div>
               <div>
                 <div className='flex gap-2 justify-center'>

@@ -5,6 +5,8 @@ export type Product = {
     price: number;
     quantity ?: number;
     price_amount ?: number;
+    supplier ?: string;
+
 }
 
 export type User = {

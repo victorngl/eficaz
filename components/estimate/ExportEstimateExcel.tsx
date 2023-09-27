@@ -22,10 +22,10 @@ const ExportEstimateExcel = ({ estimate }) => {
 		var companyName = [[`Nome da Empresa: ${estimate.name}`]];
 		var companyCNPJ = [[`CNPJ: ${estimate.cnpj}`]];
 
-		var Heading = [["Código", "Nome do Produto", "Unidade", "Preço Unitário (R$)", "Quantidade", "Valor Total (R$)",]];
-		const sortedHeader = ['id', 'name', 'unity', 'price', 'quantity', 'price_amount'];
+		var Heading = [["Código", "Nome do Produto", "Unidade", "Fornecedor", "Preço Unitário (R$)", "Quantidade", "Valor Total (R$)",]];
+		const sortedHeader = ['id', 'name', 'unity', 'supplier', 'price', 'quantity', 'price_amount'];
 
-		var totalValueLines = [["Valor Total", [`R$ ${estimate.totalprice}`]]]
+		var totalValueLines = [["Valor Total", [`R$ ${estimate.totalprice.toFixed(2)}`]]]
 		var blankLine = [];
 
 

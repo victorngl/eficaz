@@ -61,7 +61,7 @@ export default function EstimateShowTable({ dataRaw, data, setData }) {
                 <td scope="row" className="whitespace-nowrap w-32 text-center px-6 py-2 font-medium text-gray-900 dark:text-white">
                   {estimate.status.name}</td>
                 <td scope="row" className="text-center px-6 py-2 font-bold text-gray-900 dark:text-white whitespace-nowrap">
-                  R$ {estimate.totalprice}</td>
+                  R$ {estimate.totalprice.toFixed(2)}</td>
                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white">
                   <div className='flex gap-2 justify-center'>
                     <button className='p-2 rounded bg-red-500 text-white  hover:bg-red-200' onClick={() => { setEstimateToDelete(estimate.id); setModalOpen(true) }}>
@@ -87,7 +87,7 @@ export default function EstimateShowTable({ dataRaw, data, setData }) {
                 <div className='text-sm'><label className='font-bold'>Nome: </label>{estimate.name}</div>
                 <div className='text-sm'><label className='font-bold'>CNPJ: </label>{estimate.cnpj}</div>
                 <div className='text-sm'><label className='font-bold'>Status: </label>{estimate.status.name}</div>
-                <div className='text-sm'><label className='font-bold'>Valor Total: </label>R$ {estimate.totalprice}</div>
+                <div className='text-sm'><label className='font-bold'>Valor Total: </label>R$ {estimate.totalprice.toFixed(2)}</div>
               </div>
               <div>
                 <div className='flex gap-2 justify-center'>

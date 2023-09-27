@@ -29,11 +29,11 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
                                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                     {row.unity}</td>
                                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    R$ {row.price}</td>
+                                    R$ {row.price.toFixed(2)}</td>
                                 <td scope="row" className="w-32 text-center px-6 py-2 font-medium text-gray-900 dark:text-white">
                                     {row.quantity}</td>
                                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                    R$ {row.price * row.quantity}</td>
+                                    R$ { (row.price * row.quantity).toFixed(2) }</td>
                                 <td scope="row" className="text-center px-6 py-2 font-medium text-gray-900 dark:text-white">
                                     <button className='bg-red-500 text-white p-2 rounded-lg font-semibold' type="button" onClick={e => handleRemoveProduct(index, row)}>Excluir</button>
                                 </td>
@@ -56,7 +56,7 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
                         </div>
                         <div className='grid grid-cols-2 p-2'>
                             <p className='text-sm'>Preço Unitário (R$):</p>
-                            <p className='text-xs'>R$ {row.price}</p>
+                            <p className='text-xs'>R$ {row.price.toFixed(2)}</p>
                         </div>
                         <div className='grid grid-cols-2 p-2'>
                             <p className='text-sm'>Quantidade:</p>
@@ -64,7 +64,7 @@ export default function EstimateSelectedTable({ estimate, handleRemoveProduct })
                         </div>
                         <div className='grid grid-cols-2 p-2'>
                             <p className='text-sm'>Preço Total (R$):</p>
-                            <p className='text-xs'>R$ {row.quantity*row.price}</p>
+                            <p className='text-xs'>R$ {(row.quantity*row.price).toFixed(2)}</p>
                         </div>
                         <div className='grid grid-cols-2 p-2'>
                             <button className='w-24 text-sm bg-red-500 text-white p-1 rounded-lg font-semibold' type="button" onClick={e => handleRemoveProduct(index, row)}>Excluir</button>

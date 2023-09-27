@@ -13,7 +13,7 @@ import ProductsShowTable from '../../../components/product/ProductsShowTable';
 import { Product } from '../../../types/types';
 
 export default function ProdutosPage() {
-  
+
   const [products, setProducts] = useState<Product[]>([]);
   const [busca, setBusca] = useState<string>('');
 
@@ -49,9 +49,12 @@ export default function ProdutosPage() {
 
         <div className='space-y-2'>
           <p>Buscar</p>
-          <div className='flex justify-between'>
+          <div className='flex space-x-5'>
             <SearchField onChange={(e) => setBusca(e.target.value)}></SearchField>
-            <button type='button' className='text-sm p-2 font-semibold rounded bg-green-500 text-white' onClick={() => router.push(`/produto/create`)}>Criar produto</button>
+           
+              <button type='button' className='text-sm p-2 font-semibold rounded bg-green-500 text-white' onClick={() => router.push(`/produto/create`)}>Criar produto</button>
+              <button type='button' className='text-sm p-2 font-semibold rounded bg-blue-500 text-white' onClick={() => router.push(`/produto/import`)}>Importação por Planilha</button>
+            
           </div>
 
         </div>
