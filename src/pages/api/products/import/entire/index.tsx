@@ -30,40 +30,22 @@ export default async function handler(req, res) {
 
                 const data: Product[] = xlsx.utils.sheet_to_json(sheet);
 
-    
+
                 if (sheet['A1'].v !== 'name' || sheet['B1'].v !== 'unity' || sheet['C1'].v !== 'price' || sheet['D1'].v !== 'supplier' || sheet['E1'].v !== 'quantity') {
                     return res.status(400).json({ error: 'A planilha precisa estar dentro do padrão para ser importada, por favor baixe a planilha de exemplo na tela anterior.' });
                 }
 
-                const productsFromDB = await prisma.product.findMany();
+                console.log('1')
+                //DELETANDO TODO O BANCO DE DADOS
+                const deleteResult = await prisma.product.deleteMany({});
+                console.log(deleteResult)
+
 
                 let i = 0;
-                for (const item of data) {
-
-                    i++;
-                    
-                    const filteredProducts = productsFromDB.filter((product: Product, index) => {
-                        return (item.name === product.name) 
-                    });
-
-                    console.log(filteredProducts);
-
-                    if (filteredProducts.length > 0) {
-                        return res.status(400).json({ error: 'Erro na linha ' + i + '.' + 'Este item já existe no banco de dados.' });
-                    }
-
-
-
-                    if (!item.name || !item.unity || !item.price || !item.supplier || !item.quantity) {
-                        return res.status(400).json({ error: 'Error na linha ' + i + '.' + 'Todos os campos obrigatórios devem estar preenchidos dentro da planilha.' });
-                    }
-                }
-
-
                 // Faça a inserção dos dados no banco de dados usando o Prisma
                 for (const item of data) {
-                    console.log(item);
-
+                    i++
+                    
                     await prisma.product.create({
                         data: {
                             name: item.name,
@@ -74,13 +56,11 @@ export default async function handler(req, res) {
                             // Mapeie os campos do modelo conforme necessário
                         } as Product
                     });
-
-                    console.log(item);
-
+ 
                 }
 
 
-                return res.status(200).json({ message: 'Planilha importada com sucesso. ( ' + i + ' itens foram importados.)' });
+                return res.status(200).json({ message: 'Planilha importada com sucesso. ( ' + i + ((i>1)?'itens ':'item ') + ((i>1)?'foram':'foi') + ' importado'+ ((i>1)?'s.':'.') + ')'});
             }
             catch (error) {
                 return res.status(500).json({ error: 'Erro ao importar a planilha' });

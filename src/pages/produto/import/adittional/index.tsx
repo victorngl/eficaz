@@ -7,8 +7,7 @@ import Container from '../../../../../components/utils/Container';
 import Divider from '../../../../../components/utils/Divider';
 import Footer from '../../../../../components/footer/Footer';
 import ImportFileUploadForm from '../../../../../components/product/import/ImportForm';
-import ErrorBoundary from '../../../../../components/utils/ErrorBoundary';
-import SuccessBoundary from '../../../../../components/utils/SuccessBoundary';
+import Boundary from '../../../../../components/utils/Boundary';
 
 export default function ImportAdittional() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -29,8 +28,8 @@ export default function ImportAdittional() {
       const responseMessage = await response.json();
       if (response.ok) {
         // Lide com a resposta de sucesso aqui
-        console.log('Planilha importada com sucesso!');
-        setSuccess('Planilha importada com sucesso!')
+        console.log(responseMessage.message);
+        setSuccess(responseMessage.message)
       } else {
         // Lide com erros aqui
         setError(responseMessage.error)
@@ -58,8 +57,8 @@ export default function ImportAdittional() {
 
         <Divider className='my-2' />
 
-        {error && <ErrorBoundary message={error}/>}
-        {success && <SuccessBoundary message={success}/>}
+        {error && <Boundary type='error'>{error}</Boundary>}
+        {success && <Boundary type='success'>{success}</Boundary>}
 
         <div className='space-y-2'>
 

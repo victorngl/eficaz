@@ -6,8 +6,7 @@ import Navbar from '../../../../components/navbar/Navbar';
 import Container from '../../../../components/utils/Container';
 import Divider from '../../../../components/utils/Divider';
 import Footer from '../../../../components/footer/Footer';
-import ErrorBoundary from '../../../../components/utils/ErrorBoundary';
-import SuccessBoundary from '../../../../components/utils/SuccessBoundary';
+import Boundary from '../../../../components/utils/Boundary';
 
 export default function ImportAdittional() {
   const [error, setError] = useState<string>('');
@@ -45,8 +44,8 @@ export default function ImportAdittional() {
 
         <Divider className='my-2' />
 
-        {error && <ErrorBoundary message={error}/>}
-        {success && <SuccessBoundary message={success}/>}
+        {error && <Boundary type='error'>{error}</Boundary>}
+        {success && <Boundary type='success'>{success}</Boundary>}
 
         <div className='space-y-2'>
 

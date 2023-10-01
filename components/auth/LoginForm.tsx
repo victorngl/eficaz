@@ -6,7 +6,7 @@ import { signIn } from "next-auth/react"
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/router";
-
+import Boundary from "../utils/Boundary";
 
 function LoginForm() {
     const router = useRouter()
@@ -28,7 +28,7 @@ function LoginForm() {
         event.preventDefault();
 
         var md5 = require('md5');
-        
+
         await signIn('credentials', {
             redirect: false,
             email: loginInfo.email,
@@ -68,11 +68,10 @@ function LoginForm() {
 
                     <img className="m-5" src='/logo.png' alt="" />
                     {error &&
-
-                        <div className="mb-5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                        <Boundary type='error'>
                             <strong className="font-bold mr-2">Oooops!</strong>
                             <span className="block sm:inline">{error}</span>
-                        </div>
+                        </Boundary>
 
                     }
 
