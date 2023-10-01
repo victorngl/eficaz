@@ -31,7 +31,7 @@ export default async function handler(req, res) {
                 const data: Product[] = xlsx.utils.sheet_to_json(sheet);
 
     
-                if (sheet['A1'].v !== 'name' || sheet['B1'].v !== 'unity' || sheet['C1'].v !== 'price' || sheet['D1'].v !== 'supplier' || sheet['D1'].v !== 'quantity') {
+                if (sheet['A1'].v !== 'name' || sheet['B1'].v !== 'unity' || sheet['C1'].v !== 'price' || sheet['D1'].v !== 'supplier' || sheet['E1'].v !== 'quantity') {
                     return res.status(400).json({ error: 'A planilha precisa estar dentro do padrão para ser importada, por favor baixe a planilha de exemplo na tela anterior.' });
                 }
 
