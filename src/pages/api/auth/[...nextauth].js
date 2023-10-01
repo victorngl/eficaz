@@ -24,6 +24,8 @@ export const authOptions = {
                     }
                 })
                 
+                console.log(getUser);
+
                 if (getUser) {
 
                     if (getUser.password === credentials.password) {
